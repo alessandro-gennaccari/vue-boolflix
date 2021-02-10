@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 </head>
 <body>
 
@@ -51,15 +53,23 @@
                             <div class="on-hover">
                                 <div class="info">
 
-                                    <div>Titolo: {{search.title}}</div>
-                                    <div>Titolo Originale: {{search.original_title}}</div>
+                                    <div v-if="search.title">Titolo: {{search.title}}</div>
+                                    <div v-else>Titolo: {{search.name}}</div>
+                                    <div v-if="search.original_title">Titolo Originale: {{search.original_title}}</div>
+                                    <div v-else>Titolo Originale: {{search.original_name}}</div>
                                     <div>Lingua: {{search.original_language}}</div>
-                                    <div>Voto: {{search.vote_average}}</div>
+                                    <div class="star">
+                                        Voto:
+                                        <span v-for="(i,index) in 5">
+                                            <i v-if="index < search.vote_average" class="fas fa-star full"></i>
+                                            <i v-else class="far fa-star"></i>
+                                        </span>
+                                         
+                                    </div>
                                     
                                     <div class="overwiev-info">
-                                       <span>
-                                           {{search.overview}}
-                                       </span>
+                                       <span v-if="search.overview">{{search.overview}}</span>
+                                       <span v-else>Descrizione non disponibile</span>
                                     </div>
 
                                 </div>
