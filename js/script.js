@@ -23,6 +23,9 @@ var boolflix = new Vue({
             })
             .catch((error) => console.log(error));
 
+            // Svuota il campo di input
+            this.query = '';
+
         }
     }
 }); 
