@@ -22,9 +22,58 @@
     <!-- Inizio Vue(Script boolflix) -->
     <div id="boolflix">
 
+        <header>
+
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Netflix">
+            </div>
+
+            <div class="input-search">
+                <input type="text" placeholder="&#128269;   Cerca nel sito" v-model="query" @keyup.enter="search">
+            </div>
+
+        </header>
 
 
+        <main>
 
+            <div class="main-container">
+
+                <div class="box">
+
+                    <div v-for="search in searcharray" class="card">
+
+                        <div class="relative">
+
+                            <img v-if="search.poster_path" :src="'https://image.tmdb.org/t/p/w500' + search.poster_path" alt="">
+                            <img v-else src="img/imgnone.png" alt="Nessuna immagine">
+
+                            <div class="on-hover">
+                                <div class="info">
+
+                                    <div>Titolo: {{search.title}}</div>
+                                    <div>Titolo Originale: {{search.original_title}}</div>
+                                    <div>Lingua: {{search.original_language}}</div>
+                                    <div>Voto: {{search.vote_average}}</div>
+                                    
+                                    <div class="overwiev-info">
+                                       <span>
+                                           {{search.overview}}
+                                       </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                
+                </div>
+                
+            </div>
+
+        </main>
 
     </div>
     <!-- Fine Vue(Script boolflix) -->
