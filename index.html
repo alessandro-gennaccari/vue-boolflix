@@ -66,11 +66,8 @@
                             <div class="on-hover">
                                 <div class="info">
 
-                                    <div v-if="search.title">Titolo: {{search.title}}</div>
-                                    <div v-else>Titolo: {{search.name}}</div>
-
-                                    <div v-if="search.original_title">Titolo Originale: {{search.original_title}}</div>
-                                    <div v-else>Titolo Originale: {{search.original_name}}</div>
+                                    <div>Titolo: {{search.title || search.name}}</div>
+                                    <div>Titolo Originale: {{search.original_title || search.original_name}}</div>
 
                                     <div class="star">
                                         Rate:

@@ -187,3 +187,24 @@ main .main-container .box .card .relative:hover .on-hover {
         justify-content: center;
     }
 }
+
+
+/* Scrollbar for chrome */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* ::-webkit-scrollbar-track {
+    background: #dc1a2700;
+    border-radius: 40px;
+} */
+
+::-webkit-scrollbar-thumb {
+    background: #dc1a28;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+  
