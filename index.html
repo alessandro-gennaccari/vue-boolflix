@@ -40,14 +40,19 @@
 
             <div class="input-search">
                 <input type="text" placeholder="&#128269;   Cerca nel sito" v-model="query" @keyup.enter="search">
+                <a class="profile" href="#">
+
+                    <i class="fas fa-user-alt"></i>
+                </a>
             </div>
 
         </header>
 
 
         <main>
-
             <div class="main-container">
+
+                <span id="top"></span>
 
                 <div class="box">
 
@@ -90,8 +95,6 @@
                         </div>
                         
                     </div>
-
-                    <h2 @click="homeTrend" class="block-display">Best of the day</h2>
                     
                     <div v-for="now in trend" class="card">
                         
@@ -141,6 +144,10 @@
 
     </div>
     <!-- Fine Vue(Script boolflix) -->
+
+    <a class="up" href="#top">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
 
 
     <!-- Script -->

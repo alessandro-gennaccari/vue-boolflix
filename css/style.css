@@ -45,10 +45,29 @@ header img {
     height: 45px;
 }
 
-header .input-search input {
-    padding: 10px;
+header .input-search a{
+    display: inline-block;
+    vertical-align: middle;
     height: 40px;
-    width: 222px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: white;
+    margin-right: 15px;
+}
+header .input-search a:hover{
+    background-color: rgb(255, 147, 147);
+}
+
+header .input-search i{
+    color: black;
+}
+
+header .input-search input {
+    padding: 10px 0 10px 10px;
+    height: 40px;
+    width: 200px;
     border: none;
     outline: none;
     background-color: black;
@@ -144,15 +163,23 @@ main .main-container .box .card .relative:hover .on-hover {
     border: none;
 }
 
-.block-display {
-    padding-left: 25px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+.up {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgb(166, 0, 13);
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    cursor: pointer;
+    font-size: 20px;
     color: white;
-    width: 100%;
 }
-.block-display:hover {
-    text-decoration: underline;
+
+.up:hover {
+    background-color: rgb(211, 22, 38);
 }
 
 @media screen and (max-width: 1600px) {
