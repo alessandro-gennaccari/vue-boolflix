@@ -4,6 +4,7 @@ var boolflix = new Vue({
         query: '',
         api_key: 'bc3be1f92a6701a8589c3f5cc8995f46',
         lang: 'it-IT',
+        trend: [],
         savearray: [],
         searcharray: []
     },
@@ -44,12 +45,45 @@ var boolflix = new Vue({
 
             // Svuota il campo di input
             this.query = '';
+            this.trend = [];
 
         },
         voteStar(array){
             array.forEach(element => {
                 element.vote_average = Math.round(element.vote_average / 2);
             });
+        },
+        homeTrend(){
+            axios
+            .get('https://api.themoviedb.org/3/trending/all/week', {
+                params: {
+                    api_key: this.api_key,
+                    query: this.query,
+                    language: this.lang
+                }
+            })
+            .then(result => {
+                this.trend = result.data.results;
+                this.voteStar(this.trend);
+            })
+            .catch((error) => console.log(error));
+            
+            this.searcharray = [];
         }
+    },
+    mounted(){
+        axios
+        .get('https://api.themoviedb.org/3/trending/all/week', {
+            params: {
+                api_key: this.api_key,
+                query: this.query,
+                language: this.lang
+            }
+        })
+        .then(result => {
+            this.trend = result.data.results;
+            this.voteStar(this.trend);
+        })
+        .catch((error) => console.log(error));
     }
 }); 

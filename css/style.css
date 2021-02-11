@@ -17,9 +17,29 @@ header {
     background-color: black;
     border-bottom: 1px solid #ff212194;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+}
+
+header .flex{
+    display: flex;
     align-items: center;
 }
+
+header span {
+    padding: ;
+    color: rgb(224, 224, 224);
+    font-size: 18px;
+    font-weight: bolder;
+    margin-right: 40px;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+header span:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+} 
 
 header img {
     height: 45px;
@@ -37,13 +57,12 @@ header .input-search input {
 }
 
 header .input-search input:focus {
-    border-bottom: 1px solid #dc1a27a2;
+    border-left: 3px solid #ff3e4bda;
 }
 
 /* Main */
 
 main .main-container{
-    
     height: 91vh;
     overflow-y: scroll;
     scrollbar-width: thin;
@@ -122,4 +141,13 @@ main .main-container .box .card .relative:hover .on-hover {
     cursor: pointer;
     box-shadow: 0px 0 4px 3px #ff161673;
     border: none;
+}
+
+.block-display {
+    padding-left: 25px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    color: white;
+    width: 100%;
 }

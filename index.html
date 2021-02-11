@@ -26,11 +26,16 @@
 
         <header>
 
-            <div class="logo">
-                <a href="#">
-                    
-                    <img src="img/logo.png" alt="Logo Netflix">
-                </a>
+            <div class="flex">
+
+                <div class="logo">
+                    <a href="#">
+                        <img src="img/logo.png" alt="Logo Netflix">
+                    </a>
+                </div>
+                
+                <span @click="homeTrend">HOME</span> 
+                
             </div>
 
             <div class="input-search">
@@ -76,6 +81,48 @@
                                     
                                     <div class="overwiev-info">
                                        <span v-if="search.overview">{{search.overview}}</span>
+                                       <span v-else>Descrizione non disponibile</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                    <h2 class="block-display">Best of the day</h2>
+                    
+                    <div v-for="now in trend" class="card">
+                        
+                        <div class="relative">
+
+                            <img class="poster" v-if="now.poster_path" :src="'https://image.tmdb.org/t/p/w500' + now.poster_path" alt="">
+                            <img class="poster" v-else src="img/imgnone.png" alt="Nessuna immagine">
+
+                            <div class="on-hover">
+                                <div class="info">
+
+                                    <div v-if="now.title">Titolo: {{now.title}}</div>
+                                    <div v-else>Titolo: {{now.name}}</div>
+
+                                    <div v-if="now.original_title">Titolo Originale: {{now.original_title}}</div>
+                                    <div v-else>Titolo Originale: {{now.original_name}}</div>
+
+                                    <div class="star">
+                                        Rate:
+                                        <span v-for="(i,index) in 5">
+                                            <i v-if="index < now.vote_average" class="fas fa-star full"></i>
+                                            <i v-else class="far fa-star"></i>
+                                        </span>
+                                    </div>
+
+                                    <div>
+                                        <img :src="'img/' + now.original_language + '.png'" :alt="'Lingua: ' + now.original_language" :title="now.original_language">
+                                    </div>
+                                    
+                                    <div class="overwiev-info">
+                                       <span v-if="now.overview">{{now.overview}}</span>
                                        <span v-else>Descrizione non disponibile</span>
                                     </div>
 
