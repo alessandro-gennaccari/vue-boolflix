@@ -43,6 +43,7 @@ header .input-search input:focus {
 /* Main */
 
 main .main-container{
+    
     height: 91vh;
     overflow-y: scroll;
     scrollbar-width: thin;
@@ -65,7 +66,7 @@ main .main-container .box .card {
     flex-basis: 270px;
 }
 
-main .main-container .box .card img {
+main .main-container .box .card img.poster {
     max-width: 100%;
     border: 1px solid white;
 }
@@ -87,12 +88,16 @@ main .main-container .box .card .relative .on-hover {
 }
 
 main .main-container .box .card .relative .on-hover .info {
-    padding: 30px;
+    padding: 20px 30px;
     word-break: break-word;
 }
 
 main .main-container .box .card .relative .on-hover .info div {
     margin-bottom: 15px;
+}
+
+main .main-container .box .card .relative .on-hover .info div img {
+    width: 20%;
 }
 
 main .main-container .box .card .relative .on-hover .info div.overwiev-info{

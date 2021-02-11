@@ -27,7 +27,10 @@
         <header>
 
             <div class="logo">
-                <img src="img/logo.png" alt="Logo Netflix">
+                <a href="#">
+                    
+                    <img src="img/logo.png" alt="Logo Netflix">
+                </a>
             </div>
 
             <div class="input-search">
@@ -47,24 +50,28 @@
 
                         <div class="relative">
 
-                            <img v-if="search.poster_path" :src="'https://image.tmdb.org/t/p/w500' + search.poster_path" alt="">
-                            <img v-else src="img/imgnone.png" alt="Nessuna immagine">
+                            <img class="poster" v-if="search.poster_path" :src="'https://image.tmdb.org/t/p/w500' + search.poster_path" alt="">
+                            <img class="poster" v-else src="img/imgnone.png" alt="Nessuna immagine">
 
                             <div class="on-hover">
                                 <div class="info">
 
                                     <div v-if="search.title">Titolo: {{search.title}}</div>
                                     <div v-else>Titolo: {{search.name}}</div>
+
                                     <div v-if="search.original_title">Titolo Originale: {{search.original_title}}</div>
                                     <div v-else>Titolo Originale: {{search.original_name}}</div>
-                                    <div>Lingua: {{search.original_language}}</div>
+
                                     <div class="star">
-                                        Voto:
+                                        Rate:
                                         <span v-for="(i,index) in 5">
                                             <i v-if="index < search.vote_average" class="fas fa-star full"></i>
                                             <i v-else class="far fa-star"></i>
                                         </span>
-                                         
+                                    </div>
+
+                                    <div>
+                                        <img :src="'img/' + search.original_language + '.png'" :alt="'Lingua: ' + search.original_language" :title="search.original_language">
                                     </div>
                                     
                                     <div class="overwiev-info">

@@ -4,8 +4,8 @@ var boolflix = new Vue({
         query: '',
         api_key: 'bc3be1f92a6701a8589c3f5cc8995f46',
         lang: 'it-IT',
-        searcharray: [],
-
+        savearray: [],
+        searcharray: []
     },
     methods: {
         search() {
@@ -20,7 +20,7 @@ var boolflix = new Vue({
                 }
             })
             .then(result => {
-                this.searcharray = result.data.results;
+                this.savearray = result.data.results;
             })
             .catch((error) => console.log(error));
 
@@ -34,8 +34,11 @@ var boolflix = new Vue({
                 }
             })
             .then(result => {
-                this.searcharray = this.searcharray.concat(result.data.results);
-                this.voteStar(this.searcharray);
+                // Ho creato tutto in un'altro array per evitare di avere ritardo sulla visualizzzione
+                // Corretta delle stelline, altrimenti capitava di vedere sempre tutte le stelline piene
+                this.savearray = this.savearray.concat(result.data.results);
+                this.voteStar(this.savearray);
+                this.searcharray = this.savearray;
             })
             .catch((error) => console.log(error));
 
@@ -46,7 +49,6 @@ var boolflix = new Vue({
         voteStar(array){
             array.forEach(element => {
                 element.vote_average = Math.round(element.vote_average / 2);
-                console.log(element.vote_average);
             });
         }
     }
