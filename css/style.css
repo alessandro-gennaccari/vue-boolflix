@@ -45,6 +45,16 @@ header img {
     height: 45px;
 }
 
+header .input-search .filter {
+    color: white;
+    background-color: black;
+    padding: 5px;
+    border: none;
+    margin-right: 15px;
+    text-align: center;
+    outline: none;
+}
+
 header .input-search a{
     display: inline-block;
     vertical-align: middle;
@@ -89,7 +99,6 @@ main .main-container{
     scrollbar-color: #ff212194 transparent;
     width: 100%;
     padding: 50px 0 0;
-
 }
 
 main .main-container .box {

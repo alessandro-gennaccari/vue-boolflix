@@ -39,9 +39,12 @@
             </div>
 
             <div class="input-search">
+                <select class="filter" v-model="genreSelected">
+                    <option value="">No selected</option>
+                    <option v-for="genere in generi" :value="genere.id">{{genere.name}}</option>
+                </select>
                 <input type="text" placeholder="&#128269;   Cerca nel sito" v-model="query" @keyup.enter="search">
                 <a class="profile" href="#">
-
                     <i class="fas fa-user-alt"></i>
                 </a>
             </div>
@@ -56,7 +59,7 @@
 
                 <div class="box">
 
-                    <div v-for="search in searcharray" class="card">
+                    <div v-if="search.genre_ids.includes(genreSelected) || genreSelected == ''" v-for="search in searcharray" class="card">
 
                         <div class="relative">
 

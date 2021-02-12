@@ -6,7 +6,10 @@ var boolflix = new Vue({
         lang: 'it-IT',
         trend: [],
         savearray: [],
-        searcharray: []
+        searcharray: [],
+        generi:[],
+        genreSelected: ''
+
     },
     methods: {
         search() {
@@ -42,6 +45,7 @@ var boolflix = new Vue({
                 this.searcharray = this.savearray;
             })
             .catch((error) => console.log(error));
+            console.log(this.generi);
 
             // Svuota il campo di input
             this.query = '';
@@ -85,5 +89,16 @@ var boolflix = new Vue({
             this.voteStar(this.trend);
         })
         .catch((error) => console.log(error));
+
+        axios
+        .get('https://api.themoviedb.org/3/genre/movie/list', {
+            params: {
+                api_key: this.api_key,
+                language: this.lang
+            }
+        })
+        .then(result => {
+            this.generi = result.data.genres;
+        })
     }
 }); 
